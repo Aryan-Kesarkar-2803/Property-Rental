@@ -19,6 +19,19 @@ function Layout() {
     dispatch(toggleIsLogin())
   },[])
 
+  useEffect(()=>{
+    const contactToBackend = async() =>{
+        await fetch("https://property-rental-backend-0hln.onrender.com/")
+        .then((res)=>{
+          console.log("Backend Connected");
+        })
+        .catch((e)=>{
+          console.log("Error Connecting to Backend!")
+        })
+    }
+     contactToBackend();
+},[]);
+
   return (
     <div
     className=" min-h-screen min-w-full object-cover"
