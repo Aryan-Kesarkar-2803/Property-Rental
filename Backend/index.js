@@ -5,7 +5,6 @@ import cors from "cors";
 import cookieParser from 'cookie-parser'
 import dotenv from "dotenv";
 
-
 dotenv.config();
 
 const app = express();
@@ -13,10 +12,11 @@ const app = express();
 app.use(cookieParser())
 app.use(cors({
   origin:`${process.env.CORS_ORIGIN}`,
-  credentials:true,
+  credentials:true
 }));
 app.use(express.urlencoded({extended:false,limit:'50mb'}))
 app.use(express.json({limit: '50mb'}));
+
 
 
 
@@ -32,4 +32,8 @@ connectDB().then(() => {
 });
 
 app.use("/api/user", UserRouter);
+
+app.get("",(req,res)=>{
+    res.json({"message":"Hello from Backend"});
+})
 

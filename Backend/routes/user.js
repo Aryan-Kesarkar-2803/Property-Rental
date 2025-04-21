@@ -32,12 +32,13 @@ UserRouter.route('/addProperty')
     handleAddProperty
 )
 
+
+
 UserRouter.route('/yourproperties')
 .get(verifyJWT,handleUserProperty)
 
 UserRouter.route('/yourproperties/deleteproperty')
 .delete(verifyJWT, handleDeleteProperty);
-
 
 
 export{
