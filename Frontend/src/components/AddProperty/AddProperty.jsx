@@ -39,6 +39,7 @@ const handleIsPropertyPresent = async() =>{
     method: "GET",
     withCredentials: true,
   }).then(res =>{
+    
     setPropertyUploaded(true);
   })
   .catch(err=>{

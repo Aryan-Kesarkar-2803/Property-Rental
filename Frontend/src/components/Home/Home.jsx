@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Home() {
+  
+  useEffect(()=>{
+      const contactToBackend = async() =>{
+          await fetch("https://property-rental-backend-0hln.onrender.com")
+          .then((res)=>{
+            console.log("Backend Connected");
+          })
+          .catch((e)=>{
+            console.log("Error Connecting to Backend!")
+          })
+      }
+       contactToBackend();
+  },[]);
+
   return (
     <div className=" min-h-screen w-full pt-16 pb-20  lg:pb-40 lg:pt-24">
       <div className=" mt-8 lg:grid lg:grid-cols-2  lg:items-center ">
