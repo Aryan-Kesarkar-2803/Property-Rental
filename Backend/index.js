@@ -17,10 +17,6 @@ app.use(cors({
 app.use(express.urlencoded({extended:false,limit:'50mb'}))
 app.use(express.json({limit: '50mb'}));
 
-
-
-
-
 connectDB().then(() => {
   try {
     app.listen(process.env.PORT, () => {
@@ -31,9 +27,11 @@ connectDB().then(() => {
   }
 });
 
+app.get("/",(req,res)=>{
+  res.json({"message":"Hello from Backend"});
+})
+
 app.use("/api/user", UserRouter);
 
-app.get("",(req,res)=>{
-    res.json({"message":"Hello from Backend"});
-})
+
 
